@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class LorenzAttractor : MonoBehaviour
     private float dt;
 
     public Vector3 start;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +63,6 @@ public class LorenzAttractor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void OnPValueChanged(float v)
@@ -69,15 +70,22 @@ public class LorenzAttractor : MonoBehaviour
         this.p = v;
         _lineRenderer.SetPositions(CreateVertices());
     }
+
     public void OnRValueChanged(float v)
     {
         this.r = v;
         _lineRenderer.SetPositions(CreateVertices());
     }
+
     public void OnBValueChanged(float v)
     {
         this.b = v;
         _lineRenderer.SetPositions(CreateVertices());
     }
 
+    public void ResetParameter()
+    {
+        InitializeParameters();
+        _lineRenderer.SetPositions(CreateVertices());
+    }
 }
