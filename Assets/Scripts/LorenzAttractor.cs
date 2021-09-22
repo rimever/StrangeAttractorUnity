@@ -63,4 +63,21 @@ public class LorenzAttractor : MonoBehaviour
     {
         
     }
+
+    public void OnPValueChanged(float v)
+    {
+        this.p = v;
+        _lineRenderer.SetPositions(CreateVertices());
+    }
+    public void OnRValueChanged(float v)
+    {
+        this.r = v;
+        _lineRenderer.SetPositions(CreateVertices());
+    }
+    public void OnBValueChanged(float v)
+    {
+        this.b = v;
+        _lineRenderer.SetPositions(CreateVertices());
+    }
+
 }
